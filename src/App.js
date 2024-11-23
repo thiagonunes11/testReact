@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ThemeProvider } from "./components/ThemeContext";
+import ThemeSwitcher from "./components/ThemeSwitcher";
+import DisplayTheme from "./components/DisplayTheme";
+import LoginForm from "./components/LoginForm";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <div
+        style={{
+          padding: "1rem",
+          backgroundColor: "var(--background-color)",
+          color: "var(--text-color)",
+          minHeight: "100vh",
+        }}
+      >
+        <h1>Aplicação com Context API</h1>
+        <DisplayTheme />
+        <ThemeSwitcher />
+        <hr />
+        <LoginForm />
+      </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
